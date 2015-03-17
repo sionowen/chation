@@ -7,7 +7,10 @@ $('form').submit(function(){
 	$('#m').val('');
 	return false;
 	});
+socket.on('userConnected', function(){
+
+});
 socket.on('message', function(msg){
-	$('#messages').append($('<li>').text(msg));
+	$('#messages').append($('<li>').html('<strong>'+msg.id+'</strong> '+msg.msg));
 
 });

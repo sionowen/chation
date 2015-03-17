@@ -19,7 +19,11 @@ var indexController = {
 		var questionId = req.params.questionId;
 		Question.find({_id: questionId}, function(err, arr){
 		var data= arr;
-			res.render('index', {data: arr[0]});
+			res.render('index', 
+				{
+					data: arr[0],
+					user: req.user.username
+				});
 		});
 
 
