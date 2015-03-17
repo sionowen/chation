@@ -1,0 +1,15 @@
+body {
+	font: 13px Helvetica, Arial;
+}
+h1, h3, h4, form{
+	text-align: center;
+}
+
+.instructions{
+	text-align: center;
+	width: 70%;
+	margin-left: 15%;
+	border: 5px;
+	border-style: solid;
+	border-color: blue;
+}

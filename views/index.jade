@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+	h2 #{data.question}
+
+	ul#messages
+	form(action = "")
+		input#m(autocomplete="off")
+		button Send
+		
+block styles
+	link( rel='stylesheet' type='text/css' href='/chat.css')
+
+block scripts
+	script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js")
+	script(src="/socket.js")
+	script.
+		var questionId = #{data._id}

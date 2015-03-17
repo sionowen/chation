@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1 Ask a Question
+
+	form#newQuestion
+		input#question.form-control(type="text", placeholder="What is your Question?")
+
+	h2 Active Questions
+	ul.list#questions-List
+		for question in questions
+			li.question(data-id="#{question._id}")
+				a(href="/question/#{question._id}")
+					strong= question.question
+					| &nbsp;
+				button.delete(href="#") delete
+
+block styles
+	link( rel='stylesheet' type='text/css' href='/middlePage.css')
+	

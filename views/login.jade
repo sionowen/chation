@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  //- Error comes through via the context passed when calling res.render('login', {...})
+  //- You'll see this in controllers/authentication.js
+  //- If the error exists, we'll display it.
+  if error
+    h3= error
+
+  h1
+    strong Welcome to Chation!
+  h4 a place for coders
+
+  //- Form for handling existing user logins.
+  h1 Existing Users
+  form(action="/auth/login", method="post")
+    input(type="text", name="username", placeholder="Username")
+    input(type="password", name="password", placeholder="Password")
+    input(type="submit")
+
+  //- Form for allowing new users to register.
+  h1 Register
+  form(action="/auth/signup", method="post")
+    input(type="text", name="username", placeholder="Username")
+    input(type="email", name="email", placeholder="Email")
+    input(type="password", name="password", placeholder="Password")
+    input(type="submit")
+
+  h1 Instructions
+  
+  div.instructions
+    p.
+      Once you log in you will be shown a form with a list of 
+      questions underneath it. you may click on a question to
+      enter a chatroom with the person who entered the question
+      or you may ask a question of your own by filling in the 
+      form and submitting.
+
+
+block styles
+  link( rel='stylesheet' type='text/css' href='/login.css')
