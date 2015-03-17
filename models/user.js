@@ -23,7 +23,10 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  
+  socketId: {
+
+
+  }
 
 });
 

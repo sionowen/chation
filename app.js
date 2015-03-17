@@ -97,8 +97,13 @@ io.on('connection', function(socket){
 //this portion takes the message that the server recieves
 //and emits it to all connected clients
 io.on('connection', function (socket){
-	io.emit('userConnected', socket.id)
+	var roomId;
+	socket.on('join', function(id){
+		roomId = id;
+		socket.join(id);
+	});
+
 	socket.on('message', function(msg){
-		io.emit('message', {msg: msg, id: socket.id});
+		io.to(roomId).emit('message', {msg: msg, id: socket.id});
 	});
 });
